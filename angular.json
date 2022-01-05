@@ -1,0 +1,51 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "niit-content-section": {
+      "projectType": "library",
+      "root": "projects/niit-content-section",
+      "sourceRoot": "projects/niit-content-section/src",
+      "prefix": "sb",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/niit-content-section/tsconfig.lib.json",
+            "project": "projects/niit-content-section/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/niit-content-section/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/niit-content-section/src/test.ts",
+            "tsConfig": "projects/niit-content-section/tsconfig.spec.json",
+            "karmaConfig": "projects/niit-content-section/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/niit-content-section/tsconfig.lib.json",
+              "projects/niit-content-section/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "niit-content-section",
+  "cli": {
+    "analytics": "a86a3cf7-d51b-4078-a966-ab5501fb1ecd"
+  }
+}
